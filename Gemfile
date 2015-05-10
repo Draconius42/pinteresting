@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'coffee-script-source','1.8.0'
+gem 'devise', '~> 3.1.0.rc2'
 
 group :development, :test do
 	gem 'sqlite3'
