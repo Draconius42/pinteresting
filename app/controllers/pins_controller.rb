@@ -22,28 +22,26 @@ class PinsController < ApplicationController
   # POST /pins
   def create
     @pin = Pin.new(pin_params)
-
-
-      if @pin.save
-        redirect_to @pin, notice: 'Pin was successfully created.' 
-      else
-        render :new 
-      end
+    if @pin.save
+      redirect_to @pin, notice: 'Pin was successfully created.' 
+    else
+      render :new 
+    end
   end
 
   # PATCH/PUT /pins/1
   def update
-      if @pin.update(pin_params)
-        redirect_to @pin, notice: 'Pin was successfully updated.' 
-      else
-        render :edit
-      end
+    if @pin.update(pin_params)
+      redirect_to @pin, notice: 'Pin was successfully updated.' 
+    else
+      render :edit
+    end
   end
 
   # DELETE /pins/1
   def destroy
     @pin.destroy
-      redirect_to pins_url, notice: 'Pin was successfully destroyed.'
+    redirect_to pins_url, notice: 'Pin was successfully destroyed.'
     end
   end
 
@@ -57,6 +55,5 @@ class PinsController < ApplicationController
     def pin_params
       params.require(:pin).permit(:description)
     end
-  end
-
 end
+
