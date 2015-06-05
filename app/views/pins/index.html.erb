@@ -1,5 +1,7 @@
 <%= render 'pages/home' unless user_signed_in? %>
-
+<div class="center">
+   <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
+</div>
 <div id="pins" class="transitions-enabled">
   <div class="row">
     <% @pins.each do |pin| %>
@@ -11,7 +13,7 @@
           <% end %>
             <div class="panel-body">
               <h3 class="panel-title"><%= pin.description %><br />
-              <small><%= pin.user.email if pin.user %></small></h3>
+              <small><%= pin.user.name if pin.user %></small></h3>
             </div>
             <% if pin.user == current_user %>
             <div class="panel-footer small">
@@ -25,7 +27,7 @@
                   <td class="text-right">
                     <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
                       Destroy <span class="glyphicon glyphicon-trash"></span>
-                      <% end %>
+                      <% end %> 
                   </td>           
                 </tr>
               </table>
@@ -35,4 +37,8 @@
         </div>
       <% end %>
     </div>
+</div>
+
+<div class="center">
+   <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
 </div>

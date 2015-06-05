@@ -5,7 +5,7 @@
 		<%= image_tag @pin.image.url(:original) %>
 			<div class="panel-body">
 		        <h3 class="panel-title"><%= @pin.description %><br />
-		        <small><%= @pin.user.email if @pin.user %></small></h3>
+		        <small><%= @pin.user.name if @pin.user %></small></h3>
 		    </div>
 			<% if @pin.user == current_user %>
 				<div class="panel-footer small">
